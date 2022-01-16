@@ -1,27 +1,52 @@
-<div>
-    <h1>Cadastro de usuários</h1>
-    <form id="cadastro_form" name="cadastro" method="post" action="">
-        <label class="label">Nome</label>
-        <input class="input" name="nome_c" type="text"><br>
+<div class="container" style="background-color:white; margin-top: 5%; border-radius: 10%; width: 500px;">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title text-center">Cadastro de usuários</h2>
+      <hr>
 
-        <label class="label">Sobrenome</label>
-        <input class="input" name="sobrenome_c" type="text"><br>
+      <form id="cadastro_form" name="cadastro" method="post" action="" style="margin-left: 10%;">
+        <div class="form-group" >
+          <label class="mylabel" style="font-family: Georgia, serif; font-size:20px;">Nome</label>
+          <input class="input" name="nome_c" type="text" style="width: 80%;">
+        </div>
 
-        <label class="label">email</label>
-        <input class="input" name="email_c" type="email"><br>
+        <div class="form-group" >
+          <label class="mylabel" style="font-family: Georgia, serif; font-size:20px;">Sobrenome</label>
+          <input class="input" name="sobrenome_c" type="text" style="width: 80%;">
+        </div>
 
-        <label class="label">Usuário</label>
-        <input class="input" name="user_c" type="text"><br>
+        <div class="form-group" >
+          <label class="mylabel" style="font-family: Georgia, serif; font-size:20px;">Email</label>
+          <input class="input" name="email_c" type="email" style="width: 80%;">
+        </div>
 
-        <label class="label">Senha</label>
-        <input class="input" name="pass_c" type="password"><br>
+        <div class="form-group" >
+          <label class="mylabel" style="font-family: Georgia, serif; font-size:20px;">Usuário</label>
+          <input class="input" name="user_c" type="text" style="width: 80%;">
+        </div>
 
-        <label class="label">Confirmar senha</label>
-        <input class="input" name="pass2_c" type="password"><br>
+        <div class="form-group" >
+          <label class="mylabel" style="font-family: Georgia, serif; font-size:20px;">Senha</label>
+          <input class="input" name="pass_c" type="password" style="width: 80%;">
+        </div>
 
-        <button class="button" type="submit">Confirmar</button><br>
-    </form>
+        <div class="form-group" >
+          <label class="mylabel" style="font-family: Georgia, serif; font-size:20px;">Confirmar senha</label>
+          <input class="input" name="pass2_c" type="password" style="width: 80%;">
+        </div>
 
-    <p>Se já possui cadastro clique <a href="#">aqui</a> para entrar</p>
+        <button class="button btn btn-large btn-primary" type="submit" style="width: 83%;">Confirmar</button>
+      </form>
+
+      <small class="card-text" style="margin-left: 10%;">
+        Se já possui cadastro clique 
+        <a href="http://localhost/php_teste/?p=login">
+          aqui
+        </a> 
+        para entrar
+      </small>
+
+    </div>
+  </div>
 
 </div>

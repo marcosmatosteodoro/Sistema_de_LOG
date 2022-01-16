@@ -39,11 +39,11 @@ function alterarbd($campo, $novoDado, $id){
     return $mensagem;
 }
 
-function exibirDados(){
+function exibirDados($ordem = 'id'){
     $conn = conectar();
     $tabela = 'pacientes';
 
-    $stmt = $conn->prepare("SELECT * FROM $tabela ORDER BY nome");
+    $stmt = $conn->prepare("SELECT * FROM $tabela ORDER BY id");
 
     $stmt->execute();
 

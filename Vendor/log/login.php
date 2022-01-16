@@ -1,4 +1,5 @@
 <?php
+
 require_once "Vendor/config/bd_usuarios.php";
 require_once "Vendor/config/session.php";
 require_once 'Vendor/log/login.html';
@@ -17,7 +18,10 @@ if(isset($_POST['user_l']) && isset($_POST['pass_l'])){
         } elseif($validacao != 1 ){
             $message = "Ops! Algo deu errado";
         }else{
-            $message = entrarSession($usuario);
+            $query = 1;
+            header('Location:http://localhost/php_teste/?p=vizualizacao');
+            $dados = puxarDados($usuario);
+            $message = entrarSession($dados[0]['id'], $dados[0]['nome'], $dados[0]['sobrenome'], $usuario);
         }
     }
 echo $message;

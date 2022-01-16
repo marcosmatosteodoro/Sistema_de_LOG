@@ -1,40 +1,38 @@
 <?php
 
-$dir = '../dashboard/upload';   
+//require_once "Vendor/config/bd_pacientes.php";
+require_once "bd_pacientes.php";
 
-if(!is_dir($dir)){
-    mkdir($dir);
-    echo '<br>Criando pasta';
-}
-// RETORNA UM ARRAY COM TODOS OS ARQUIVOS TXT NA PASTA
-$file_data = array();
-$arquivos = scandir($dir);
-foreach($arquivos as $arquivo){
+function enviartxt(){
+    $dir = 'Vendor/uploads';   
+
+    if(!is_dir($dir)){
+        mkdir($dir);
+    }
+    // RETORNA UM ARRAY COM TODOS OS ARQUIVOS TXT NA PASTA
+    $arquivos = scandir($dir);
+    foreach($arquivos as $arquivo){
         if(!in_array($arquivo, array('.', '..'))){ 
             $filename = $dir . "/" . $arquivo;
-            array_push($file_data, $filename);
-    }
-}
-// LÊ A PRIMEIRA LINHA  DA PAGINA
-$file = fopen($file_data[0], 'r');
-$headers = explode(' ', fgets($file));
-$data_linhas = array();
-// LÊ CADA LINHA DA PAGINA
-while( $row = fgets($file)){
-    $row_data = manipuladados($row);
-    $linha = array();
-    //var_dump($row_data);
-    //echo "<hr>";
-    
-    for($i = 0; $i < count($headers); $i++){
-        $linha[$headers[$i]] = $row_data[$i];
-    }
-    array_push($data_linhas, $linha);
-}
-fclose($file);
-echo json_encode($data_linhas);
+        
+        // LÊ A PRIMEIRA LINHA  DA PAGINA
+        $file = fopen($filename, 'r');
+        $headers = explode(' ', fgets($file));
 
+        // LÊ CADA LINHA DA PAGINA
+        while( $row = fgets($file)){
+            $row_data = manipuladados($row);
+            
 
+            $message = inseriBD($row_data['nome'], $row_data['idade'], $row_data['numero'], $row_data['matricula']);
+            echo $message;
+            }
+        }
+        
+    }
+
+    return 'Arvivo salvo com sucesso!';
+}
 
 function manipuladados($row){
     $r = array();
@@ -43,7 +41,7 @@ function manipuladados($row){
         $q = strpos($row, $palavra);
         array_push($r, $q);
     }
-    $r = array_reduce($r, 'maior');
+    $r = array_reduce($r, 'menor');
     $palavra = " 4";
     $q = strpos($row, $palavra);
     $nome = substr($row, 0, $r);
@@ -56,18 +54,18 @@ function manipuladados($row){
 
     $palavra3 = " ";
     $numero = substr($resto2, 0, 13);
-    $matricula = substr($resto2, 13 + 1, strlen($resto2));
+    $resto3 = substr($resto2, 13 + 1, strlen($resto2));
+    
+    $matricula = $resto3;
 
-    $new_row = [
-        $nome,
-        $idade,
-        $numero,
-        $matricula
-    ];
+    $new_row['nome'] = $nome;
+    $new_row['idade'] = $idade;
+    $new_row['numero'] = $numero;
+    $new_row['matricula'] = $matricula;
     return $new_row;
 }
 
-function maior($a, $p){
+function menor($a, $p){
     if($a == false){
         return $p;
     }elseif($p == false){
@@ -78,4 +76,5 @@ function maior($a, $p){
         return $p;
     }
 }
+
 ?>

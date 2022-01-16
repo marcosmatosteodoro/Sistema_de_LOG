@@ -1,15 +1,31 @@
-<div>
-    <h1>Login</h1>
-    <form id="cadastro_form" name="login" method="post" action="">
-        <label class="label">Usuário</label>
-        <input class="input" name="user_l" type="text"><br>
 
-        <label class="label">Senha</label>
-        <input class="input" name="pass_l" type="password"><br>
 
-        <button class="button" type="submit">Entrar</button><br>
-    </form>
+<div class="container" style="background-color:white; margin-top: 5%; border-radius: 10%; width: 500px;">
+    <div class="card">
+        <div class="card-body">
+          <h2 class="card-title text-center">Faça login</h2>
+          <hr>
+            <form id="cadastro_form" name="login" method="post" action="" style="margin-left: 10%;">
+                
+                <div class="form-group" >
+                    <label class="mylabel" style="font-family: Georgia, serif; font-size:20px;">Usuario</label>
+                    <input class="input" name="user_l" type="text" style="width: 80%;">
+                </div>
 
-    <p>Se não já possui cadastro clique <a href="#">aqui</a> para se cadastrar</p>
+                <div class="form-group" >
+                    <label class="mylabel" style="font-family: Georgia, serif; font-size:20px;">Senha</label>
+                    <input class="input" name="pass_l" type="password" style="width: 80%;">
+                </div>
+                <button class="button btn btn-large btn-primary" type="submit" style="width: 83%;">Confirmar</button>
+            </form>
 
+            <small class="card-text" style="margin-left: 10%;">
+                Se não possui cadastro clique 
+                <a href="http://localhost/php_teste/?p=cadastro">
+                    aqui
+                </a> 
+                para se cadastrar
+            </small>    
+        </div>
+    </div>
 </div>

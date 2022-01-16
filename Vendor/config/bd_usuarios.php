@@ -54,4 +54,18 @@ function validarBD($usuario, $senha){
 
 }
 
+function puxarDados($usuario){
+    $conn = conectar();
+    $tabela = 'cadastro';
+
+    $stmt = $conn->prepare("SELECT id, nome, sobrenome FROM $tabela WHERE usuario = '$usuario'");
+
+    $stmt->execute();
+
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $results;
+
+}
+
 ?>
