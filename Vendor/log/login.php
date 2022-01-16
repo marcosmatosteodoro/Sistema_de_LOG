@@ -1,30 +1,33 @@
 <?php
-
 require_once "Vendor/config/bd_usuarios.php";
 require_once "Vendor/config/session.php";
-require_once 'Vendor/log/login.html';
+
 
 if(isset($_POST['user_l']) && isset($_POST['pass_l'])){
 
+    $logado = false;
     $usuario = $_POST['user_l'];
     $senha = $_POST['pass_l'];
 
     if($usuario == null || $senha == null){
-        $message = 'Nenhum campo pode ser nulo!';
+        mensagem('Nenhum campo pode ser nulo!', 'danger');
     }else{
         $validacao = validarBD($usuario, $senha);
         if($validacao === 0){
-            $message = "Usuário ou senha não conferem";
+            mensagem("Usuário ou senha não conferem", 'danger');
         } elseif($validacao != 1 ){
-            $message = "Ops! Algo deu errado";
+            mensagem("Ops! Algo deu errado", 'danger');
         }else{
-            $query = 1;
-            header('Location:http://localhost/php_teste/?p=vizualizacao');
+            $logado = true;
             $dados = puxarDados($usuario);
             $message = entrarSession($dados[0]['id'], $dados[0]['nome'], $dados[0]['sobrenome'], $usuario);
         }
     }
-echo $message;
+    if ($logado === true) {
+        header('Location:http://localhost/php_teste/?p=vizualizacao');
+    }
 }
+
+require_once 'Vendor/log/login.html';
 
 ?>

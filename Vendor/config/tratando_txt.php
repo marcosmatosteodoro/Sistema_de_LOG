@@ -25,13 +25,13 @@ function enviartxt(){
             
 
             $message = inseriBD($row_data['nome'], $row_data['idade'], $row_data['numero'], $row_data['matricula']);
-            echo $message;
             }
+        unlink($filename);
         }
         
     }
 
-    return 'Arvivo salvo com sucesso!';
+    return 'Dados salvo com sucesso!';
 }
 
 function manipuladados($row){

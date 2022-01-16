@@ -1,4 +1,4 @@
-<div class="container" style="background-color:white; margin-top: 5%; border-radius: 10%; width: 500px;">
+<div class="container" style="background-color:white; margin-bottom: 10% ;border-radius: 10%; width: 500px;">
   <div class="card">
     <div class="card-body">
       <h2 class="card-title text-center">Cadastro de usuários</h2>
@@ -7,22 +7,22 @@
       <form id="cadastro_form" name="cadastro" method="post" action="" style="margin-left: 10%;">
         <div class="form-group" >
           <label class="mylabel" style="font-family: Georgia, serif; font-size:20px;">Nome</label>
-          <input class="input" name="nome_c" type="text" style="width: 80%;">
+          <input class="input" name="nome_c" type="text" style="width: 80%;" value="<?php if(isset($_POST['nome_c'])){ echo $_POST['nome_c']; } ?>">
         </div>
 
         <div class="form-group" >
           <label class="mylabel" style="font-family: Georgia, serif; font-size:20px;">Sobrenome</label>
-          <input class="input" name="sobrenome_c" type="text" style="width: 80%;">
+          <input class="input" name="sobrenome_c" type="text" style="width: 80%;" value="<?php if(isset($_POST['sobrenome_c'])){ echo $_POST['sobrenome_c']; } ?>">
         </div>
 
         <div class="form-group" >
           <label class="mylabel" style="font-family: Georgia, serif; font-size:20px;">Email</label>
-          <input class="input" name="email_c" type="email" style="width: 80%;">
+          <input class="input" name="email_c" type="email" style="width: 80%;" value="<?php if(isset($_POST['email_c'])){ echo $_POST['email_c']; } ?>">
         </div>
 
         <div class="form-group" >
           <label class="mylabel" style="font-family: Georgia, serif; font-size:20px;">Usuário</label>
-          <input class="input" name="user_c" type="text" style="width: 80%;">
+          <input class="input" name="user_c" type="text" style="width: 80%;" value="<?php if(isset($_POST['user_c'])){ echo $_POST['user_c']; } ?>">
         </div>
 
         <div class="form-group" >
@@ -38,13 +38,13 @@
         <button class="button btn btn-large btn-primary" type="submit" style="width: 83%;">Confirmar</button>
       </form>
 
-      <small class="card-text" style="margin-left: 10%;">
+      <p class="card-text" style="margin-left: 15%;">
         Se já possui cadastro clique 
         <a href="http://localhost/php_teste/?p=login">
           aqui
         </a> 
         para entrar
-      </small>
+      </p>
 
     </div>
   </div>

@@ -1,6 +1,5 @@
 <?php
 require_once "Vendor/config/bd_usuarios.php";
-require_once "Vendor/log/cadastro.html";
 
 if(isset($_POST['nome_c'])){
     $nome = $_POST['nome_c'];
@@ -10,14 +9,20 @@ if(isset($_POST['nome_c'])){
     $senha = $_POST['pass_c'];
     $senha2 = $_POST['pass2_c'];
 
+    $sucesso = false;
+
     if($nome == null || $sobrenome == null || $email == null || $usuario == null || $senha == null || $senha2 ==null){
-        $message = 'Nenhum campo pode ser nulo!';
+        mensagem('Nenhum campo pode ser nulo!', 'danger');
     }else if ($senha != $senha2){
-        $message = 'Senhas não conferem!';
+        mensagem('Senhas não conferem!', 'danger');
     }else{
-        $message = inseriBD($nome, $sobrenome, $email, $usuario, $senha);
+        mensagem(inseriBD($nome, $sobrenome, $email, $usuario, $senha), 'sucesso');
+        $sucesso = true;
     }
-echo $message;
+    if($sucesso === true){
+        header('Location:http://localhost/php_teste/?p=login');
+    }
 }
 
+require_once "Vendor/log/cadastro.html";
 ?>

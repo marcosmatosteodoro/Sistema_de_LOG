@@ -1,8 +1,11 @@
 <?php
 session_start();
+$_SESSION["log"] = false;
 
 session_unset();
-session_abort();
-echo "Sua sessão foi fechada";
+
+if($_SESSION["log"] != true){
+    header('Location:http://localhost/php_teste/?p=vizualizacao');
+}
 
 ?>

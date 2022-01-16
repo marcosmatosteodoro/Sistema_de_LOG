@@ -8,6 +8,10 @@ function conectar(){
     return $conn;
 }
 function inseriBD($nome, $idade, $telefone, $matricula){
+
+    $telefone = substr_replace($telefone, ' ', 2, 0);
+    $telefone = substr_replace($telefone, '-', 8, 0);
+
     $conn = conectar();
     $tabela = 'pacientes';
     $stmt = $conn->prepare("INSERT INTO $tabela (nome, idade, telefone, matricula) 
@@ -23,20 +27,25 @@ function inseriBD($nome, $idade, $telefone, $matricula){
     return "Dados inserido com sucesso!";
 }
 
-function alterarbd($campo, $novoDado, $id){
+function alterarbd($nome, $idade, $telefone, $matricula, $id){
+
+    $telefone = substr_replace($telefone, ' ', 2, 0);
+    $telefone = substr_replace($telefone, '-', 8, 0);
+
     $conn = conectar();
     $tabela = 'pacientes';
 
-    $stmt = $conn->prepare("UPDATE $tabela SET $campo = :CAMPO WHERE id = :ID");
+    $stmt = $conn->prepare("UPDATE $tabela SET nome= :NOME, idade = :IDADE, telefone = :TEL, matricula = :MAT WHERE id = :ID");
 
-    $stmt->bindParam(":CAMPO", $novoDado);
+    $stmt->bindParam(":NOME", $nome);
+    $stmt->bindParam(":IDADE", $idade);
+    $stmt->bindParam(":TEL", $telefone);
+    $stmt->bindParam(":MAT", $matricula);
     $stmt->bindParam(":ID", $id);
 
     $stmt->execute();
 
-    $mensagem =  "Dados alterados com sucesso!";
-
-    return $mensagem;
+    return  "Dados alterados com sucesso!";
 }
 
 function exibirDados($ordem = 'id'){
@@ -44,13 +53,18 @@ function exibirDados($ordem = 'id'){
     $tabela = 'pacientes';
 
     $stmt = $conn->prepare("SELECT * FROM $tabela ORDER BY id");
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
+function excluirDados($id_paciente){
+    $conn = conectar();
+    $tabela = 'pacientes';
+
+    $stmt = $conn->prepare("DELETE FROM $tabela WHERE id = $id_paciente;");
     $stmt->execute();
 
-    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    return $results; 
-
+    return 'Dados excluidos com sucesso!';
 }
 
 ?>

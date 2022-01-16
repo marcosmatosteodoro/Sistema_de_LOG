@@ -1,0 +1,37 @@
+<div class="container" style="background-color:white; margin-top: 3%; margin-bottom: 3%;border-radius: 10%; width: 900px; ">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title text-center">Dados a serem excluidos  </h2>
+            <table class="table" style="width: 89%; margin-left: 5%;">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Nº</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Idade</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">Matricula</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope='row'><?php echo $r['id']; ?></th>
+                        <td><?php echo $r['nome']; ?></td>
+                        <td><?php echo $r['idade']; ?></td>
+                        <td><?php echo $r['telefone']; ?></td>
+                        <td><?php echo $r['matricula']; ?></td>
+                    </tr>
+                </tbody>
+            </table>                    
+            
+            <form id="cadastro_form" name="alterar" method="get" action="" style="margin-left: 10%;">
+                <div class="form-group">
+                  
+                <input class="checkbox" type="checkbox" name="excluir" style="zoom: 1.5; margin-bottom: 1%;" value="<?php echo $r['id']; ?>">
+                <span style="font-size: large;">Excluir dados permanentemente<span>
+                <button class="button btn btn-warning"  type="submit" name="p" value="vizualizacao">Confirmar</button>
+            </div>
+            
+            </form> 
+        </div>
+    </div>
+</div>  

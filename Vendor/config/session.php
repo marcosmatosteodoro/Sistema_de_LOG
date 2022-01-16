@@ -6,6 +6,8 @@ function entrarSession($id, $nome, $sobrenome, $usuario){
     $_SESSION["nome"] = $nome;
     $_SESSION["sobrenome"] = $sobrenome;
     $_SESSION["usuario"] = $usuario;
+    $_SESSION["log"] = true;
+
 
 
     return "$nome $sobrenome está logado.";

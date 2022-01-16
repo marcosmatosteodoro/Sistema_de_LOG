@@ -1,7 +1,33 @@
 <?php
 session_start();
 require_once "Vendor/config/bd_pacientes.php";
+if (!isset($_SESSION['log']) || $_SESSION["log"] != true){
+    header('Location:http://localhost/php_teste/?p=login');
+
+}
+
+if(isset($_GET['met']) && $_GET['met'] == 'alter'){
+    $r = json_decode($_GET['dados'], true);
+    $r['telefone'] = str_replace(" ","",$r['telefone']);
+    $r['telefone'] = str_replace("-","",$r['telefone']);
+    require_once "Vendor/dashboard/vizualizacaoAlter.html";
+
+}elseif(isset($_GET['met']) && $_GET['met'] == 'exc'){
+    $r = json_decode($_GET['dados'], true);
+    require_once "Vendor/dashboard/vizualizacaoExec.html";
+
+}elseif(isset($_GET['nome_a'])){
+    $message = alterarbd($_GET['nome_a'], $_GET['idade_a'], $_GET['telefone_a'], $_GET['matricula_a'], $_GET['id_a']);
+    mensagem($message, 'sucesso');
+    
+}elseif(isset($_GET['excluir'])){
+    $message = excluirDados($_GET['excluir']);
+    mensagem($message, 'sucesso');
+}
+
+
 require_once "Vendor/dashboard/vizualizacaoInicio.html";
+
 
 foreach(exibirDados() as $dados){
     echo "
@@ -12,13 +38,17 @@ foreach(exibirDados() as $dados){
     <td>" . $dados['telefone'] . "</td>
     <td>" . $dados['matricula'] . "</td>
     <td>
-        <button class='btn btn-warning'>Alterar</button>
-        <button class='btn btn-danger'>Excluir</button>
+        
+        <a href='?p=vizualizacao&met=alter&dados=". json_encode($dados) ."'>
+            <button class='btn btn-secundary'>Alterar</button>
+        </a>
+        <a href='?p=vizualizacao&met=exc&dados=" .json_encode($dados)."'>
+            <button class='btn btn-danger'>Excluir</button>
+        </a>
+        
     </td>
 </tr>"
 ;
 }
 require_once "Vendor/dashboard/vizualizacaoFim.html";
-
-
 ?>
