@@ -2,7 +2,7 @@
 session_start();
 require_once "Vendor/config/bd_pacientes.php";
 if (!isset($_SESSION['log']) || $_SESSION["log"] != true){
-    header('Location:http://localhost/php_teste/?p=login');
+    header('Location:index.php?p=login');
 
 }
 

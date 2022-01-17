@@ -30,6 +30,12 @@ switch($paginas){
     $nav = '_navDashboard';
     break;
 
+    case "sair":
+      $pagina = "dashboard/sair.php";
+      $titulo = "Sair";
+      $nav = '_navLog';
+      break;
+
     default:
     $pagina = "log/login.php";
     $titulo = "Login";

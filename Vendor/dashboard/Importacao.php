@@ -5,7 +5,7 @@ require_once "Vendor/config/tratando_txt.php";
 require_once "Vendor/config/bd_pacientes.php";
 
 if (!isset($_SESSION['log']) || $_SESSION["log"] != true){
-    header('Location:http://localhost/php_teste/?p=login');
+    header('Location:index.php?p=login');
 }
 
 
@@ -26,19 +26,26 @@ if(isset($_POST['nome_i'])){
 
 } else if(isset($_FILES["fileUpload"])){
     $file = $_FILES["fileUpload"];
+    $extensao = substr($file['name'], -3, 3);
+    $erro = false;
     if ($file["error"]) {
         throw new Excaption("Error: ".$file["error"]);
     }
+    if($extensao != 'txt'){
+        $message = " Extensão $extensao não suportada<br>Faça upload de arquivo com extensão txt!";
+        mensagem($message, 'danger');
+        $erro = true;
+    }
+    
     $dirUploads = "Vendor/uploads";
     if (!is_dir($dirUploads)) {
 
         mkdir($dirUploads);
     }
-    if (move_uploaded_file($file["tmp_name"], $dirUploads . DIRECTORY_SEPARATOR . $file["name"])) {
+    if ($erro !== true) {
+        move_uploaded_file($file["tmp_name"], $dirUploads . DIRECTORY_SEPARATOR . $file["name"]);
         $message = enviartxt();
         mensagem($message, 'sucesso');
-    } else {
-        throw new Exception("Não foi possível reaizar o upload.");
     }
 }
 

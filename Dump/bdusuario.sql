@@ -18,7 +18,8 @@
 --
 -- Table structure for table `cadastro`
 --
-
+CREATE SCHEMA bdusuario;
+USE bdusuario;
 DROP TABLE IF EXISTS `cadastro`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -76,5 +77,11 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+INSERT INTO cadastro(nome, sobrenome, email, usuario, senha) VALUES ('root', 'root', 'root@email.com', 'root', 'root');
+INSERT INTO pacientes(nome, idade, telefone, matricula) VALUES ('João da Silva', 40, '11 98888-5555', '1239078ba');
+INSERT INTO pacientes(nome, idade, telefone, matricula) VALUES ('Maria da Silva', 32, '11 98888-4444 ', '8957g234g');
+INSERT INTO pacientes(nome, idade, telefone, matricula) VALUES ('José de Oliveira', 44, '11 98888-3333 ', '23456rgyt');
+INSERT INTO pacientes(nome, idade, telefone, matricula) VALUES ('Ana Paula', 55 , '11 98888-2222 ', '2346yjtuy');
 
 -- Dump completed on 2022-01-16 17:56:51

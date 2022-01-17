@@ -24,7 +24,7 @@ if(isset($_POST['user_l']) && isset($_POST['pass_l'])){
         }
     }
     if ($logado === true) {
-        header('Location:http://localhost/php_teste/?p=vizualizacao');
+        header('Location:index.php?p=vizualizacao');
     }
 }
 

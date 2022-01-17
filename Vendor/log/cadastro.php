@@ -20,7 +20,7 @@ if(isset($_POST['nome_c'])){
         $sucesso = true;
     }
     if($sucesso === true){
-        header('Location:http://localhost/php_teste/?p=login');
+        header('Location:index.php?p=login');
     }
 }
 

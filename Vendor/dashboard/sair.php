@@ -5,7 +5,7 @@ $_SESSION["log"] = false;
 session_unset();
 
 if($_SESSION["log"] != true){
-    header('Location:http://localhost/php_teste/?p=vizualizacao');
+    header('Location:index.php?p=vizualizacao');
 }
 
 ?>
