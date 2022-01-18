@@ -7,13 +7,13 @@ if (!isset($_SESSION['log']) || $_SESSION["log"] != true){
 }
 
 if(isset($_GET['met']) && $_GET['met'] == 'alter'){
-    $r = json_decode($_GET['dados'], true);
-    $r['telefone'] = str_replace(" ","",$r['telefone']);
-    $r['telefone'] = str_replace("-","",$r['telefone']);
+    $dados = json_decode($_GET['dados'], true);
+    $dados['telefone'] = str_replace(" ","",$dados['telefone']);
+    $dados['telefone'] = str_replace("-","",$dados['telefone']);
     require_once "Vendor/dashboard/vizualizacaoAlter.html";
 
 }elseif(isset($_GET['met']) && $_GET['met'] == 'exc'){
-    $r = json_decode($_GET['dados'], true);
+    $dados = json_decode($_GET['dados'], true);
     require_once "Vendor/dashboard/vizualizacaoExec.html";
 
 }elseif(isset($_GET['nome_a'])){
