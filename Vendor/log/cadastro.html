@@ -1,44 +1,44 @@
-<div class="container" style="background-color:white; margin-bottom: 10% ;border-radius: 10%; width: 500px;">
+<div class="container mycard">
   <div class="card">
     <div class="card-body">
       <h2 class="card-title text-center">Cadastro de usuários</h2>
       <hr>
 
-      <form id="cadastro_form" name="cadastro" method="post" action="" style="margin-left: 10%;">
+      <form class="cadastro_form" name="cadastro" method="post" action="">
         <div class="form-group" >
-          <label class="mylabel" style="font-family: Georgia, serif; font-size:20px;">Nome</label>
-          <input class="input" name="nome_c" type="text" style="width: 80%;" value="<?php if(isset($_POST['nome_c'])){ echo $_POST['nome_c']; } ?>">
+          <label class="mylabel">Nome</label>
+          <input class="input" name="nome_c" type="text" value="<?php if(isset($_POST['nome_c'])){ echo $_POST['nome_c']; } ?>">
         </div>
 
         <div class="form-group" >
-          <label class="mylabel" style="font-family: Georgia, serif; font-size:20px;">Sobrenome</label>
-          <input class="input" name="sobrenome_c" type="text" style="width: 80%;" value="<?php if(isset($_POST['sobrenome_c'])){ echo $_POST['sobrenome_c']; } ?>">
+          <label class="mylabel">Sobrenome</label>
+          <input class="input" name="sobrenome_c" type="text" value="<?php if(isset($_POST['sobrenome_c'])){ echo $_POST['sobrenome_c']; } ?>">
         </div>
 
         <div class="form-group" >
-          <label class="mylabel" style="font-family: Georgia, serif; font-size:20px;">Email</label>
-          <input class="input" name="email_c" type="email" style="width: 80%;" value="<?php if(isset($_POST['email_c'])){ echo $_POST['email_c']; } ?>">
+          <label class="mylabel">Email</label>
+          <input class="input" name="email_c" type="email" value="<?php if(isset($_POST['email_c'])){ echo $_POST['email_c']; } ?>">
         </div>
 
         <div class="form-group" >
-          <label class="mylabel" style="font-family: Georgia, serif; font-size:20px;">Usuário</label>
-          <input class="input" name="user_c" type="text" style="width: 80%;" value="<?php if(isset($_POST['user_c'])){ echo $_POST['user_c']; } ?>">
+          <label class="mylabel">Usuário</label>
+          <input class="input" name="user_c" type="text" value="<?php if(isset($_POST['user_c'])){ echo $_POST['user_c']; } ?>">
         </div>
 
         <div class="form-group" >
-          <label class="mylabel" style="font-family: Georgia, serif; font-size:20px;">Senha</label>
-          <input class="input" name="pass_c" type="password" style="width: 80%;">
+          <label class="mylabel">Senha</label>
+          <input class="input" name="pass_c" type="password">
         </div>
 
         <div class="form-group" >
-          <label class="mylabel" style="font-family: Georgia, serif; font-size:20px;">Confirmar senha</label>
-          <input class="input" name="pass2_c" type="password" style="width: 80%;">
+          <label class="mylabel">Confirmar senha</label>
+          <input class="input" name="pass2_c" type="password">
         </div>
 
-        <button class="button btn btn-large btn-primary" type="submit" style="width: 83%;">Confirmar</button>
+        <button class="button btn btn-large btn-primary" type="submit">Confirmar</button>
       </form>
 
-      <p class="card-text" style="margin-left: 15%;">
+      <p class="card-text small">
         Se já possui cadastro clique 
         <a href="index.php?p=login">
           aqui

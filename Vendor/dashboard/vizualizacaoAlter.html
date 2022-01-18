@@ -1,37 +1,29 @@
-<div class="container" style="background-color:white; margin-top: 3%; margin-bottom: 3%;border-radius: 10%; width: 900px; ">
+<div class="container mycardD">
     <div class="card">
         <div class="card-body">
             <h2 class="card-title text-center">Dados a serem alterados</h2>
-            <form id="cadastro_form" name="alterar" method="get" action="" style="margin-left: 10%;">
+            <form class="cadastro_form" name="alterar" method="get" action="">
                 <div class="form-group">
-                    <label class="mylabel" style="font-family: Georgia, serif; font-size:20px;">
-                        Nome
-                    </label>
-                    <input class="input" name="nome_a" type="text" style="width: 80%;" value="<?php echo $r['nome']; ?>">
+                    <label class="mylabel">Nome</label>
+                    <input class="input" name="nome_a" type="text" value="<?php echo $r['nome']; ?>">
                 </div>
     
                 <div class="form-group" >
-                    <label class="mylabel" style="font-family: Georgia, serif; font-size:20px;">
-                        Idade
-                    </label>
-                    <input class="input" name="idade_a" type="number" style="width: 80%;" value="<?php echo $r['idade']; ?>">
+                    <label class="mylabel">Idade</label>
+                    <input class="input" name="idade_a" type="number" value="<?php echo $r['idade']; ?>">
                 </div>
     
                 <div class="form-group" >
-                  <label class="mylabel" style="font-family: Georgia, serif; font-size:20px;">
-                    Telefone
-                    </label>
-                    <input class="input" name="telefone_a" type="number" style="width: 80%;" value="<?php echo $r['telefone']; ?>">
+                  <label class="mylabel">Telefone</label>
+                    <input class="input" name="telefone_a" type="number" value="<?php echo $r['telefone']; ?>">
                 </div>
     
                 <div class="form-group" >
-                    <label class="mylabel" style="font-family: Georgia, serif; font-size:20px;">
-                        Matricula
-                    </label>
-                    <input class="input" name="matricula_a" type="text" style="width: 80%;" value="<?php echo $r['matricula']; ?>">
+                    <label class="mylabel">Matricula</label>
+                    <input class="input" name="matricula_a" type="text" value="<?php echo $r['matricula']; ?>">
                 </div>
-                <input class="input" type="text" name="id_a" style="width: 3%;" value="<?php echo $r['id']; ?>" readonly>
-                <sapn style="font-family: Georgia, serif; font-size:20px;">Numero de registro</sapn>
+                <input type="text" name="id_a" style="width: 3%;" value="<?php echo $r['id']; ?>" readonly>
+                <sapn class="mylabel">Numero de registro</sapn>
                 <br>
                 <button class="button btn btn-primary"  type="submit" name="p" value="vizualizacao">Salvar</button>
 

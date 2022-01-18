@@ -1,0 +1,58 @@
+.mycard{
+    background-color:white;
+    border-radius: 10%;
+    width: 500px;
+    margin-bottom: 3%;
+
+}
+.mycardD{
+    background-color:white;
+    border-radius: 10%;
+    width: 900px;
+    margin-bottom: 3%;
+}
+.cadastro_form{
+    margin-left: 10%;
+}
+.mylabel{
+    font-family: Georgia, serif;
+    font-size:20px;
+}
+.my_table{
+    width: 89%;
+    margin-left: 5%;
+}
+.mycheckbox{
+    zoom: 1.5;
+    margin-bottom: 1%;
+}
+.input{
+    width: 80%;
+}
+.button{
+    width: 83%;
+}
+.small{
+    margin-left: 15%;
+}
+.message_card{
+    margin-bottom: 1%;
+    border-radius: 10%;
+    width: 900px;
+}
+.message_text{
+    font-size: 20px;
+    color: #fff;
+}
+.mynav{
+    margin-top: 1%;
+    margin-bottom: 2%
+}
+.titulo{
+    font-size: 60px;
+    font-family: Brandon Text;
+    margin-top: 5%;
+}
+.nav_link{
+    margin-left: 14%;
+}

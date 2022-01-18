@@ -1,8 +1,8 @@
-<div class="container" style="background-color:white; margin-top: 3%; margin-bottom: 3%;border-radius: 10%; width: 900px; ">
+<div class="container mycardD">
     <div class="card">
         <div class="card-body">
             <h2 class="card-title text-center">Dados a serem excluidos  </h2>
-            <table class="table" style="width: 89%; margin-left: 5%;">
+            <table class="table my_table">
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">Nº</th>
@@ -23,10 +23,10 @@
                 </tbody>
             </table>                    
             
-            <form id="cadastro_form" name="alterar" method="get" action="" style="margin-left: 10%;">
+            <form class="cadastro_form" name="alterar" method="get" action="">
                 <div class="form-group">
                   
-                <input class="checkbox" type="checkbox" name="excluir" style="zoom: 1.5; margin-bottom: 1%;" value="<?php echo $r['id']; ?>">
+                <input class="checkbox mycheckbox" type="checkbox" name="excluir" value="<?php echo $r['id']; ?>">
                 <span style="font-size: large;">Excluir dados permanentemente<span>
                 <button class="button btn btn-warning"  type="submit" name="p" value="vizualizacao">Confirmar</button>
             </div>
