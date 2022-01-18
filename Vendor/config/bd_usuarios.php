@@ -24,15 +24,18 @@ function inseriBD($nome, $sobrenome, $email, $usuario, $senha){
     return "Dados inserido com sucesso!";
 }
 
-function alterarbd($campo, $novoDado, $id){
+function alterarbd($nome, $sobrenome, $email, $usuario, $senha){
     $conn = conectar();
     $tabela = 'cadastro';
 
-    $stmt = $conn->prepare("UPDATE $tabela SET $campo = :CAMPO WHERE id = :ID");
-
-    $stmt->bindParam(":CAMPO", $novoDado);
-    $stmt->bindParam(":ID", $id);
-
+    $stmt = $conn->prepare("UPDATE $tabela SET nome= :NAME, sobrenome= :LASTNAME, email= :EMAIL, usuario= :LOGIN, senha= :PASSWORD WHERE usuario = :LOGIN");
+  
+    $stmt->bindParam(":NAME", $nome);
+    $stmt->bindParam(":LASTNAME", $sobrenome);
+    $stmt->bindParam(":EMAIL", $email);
+    $stmt->bindParam(":LOGIN", $usuario);
+    $stmt->bindParam(":PASSWORD", $senha);
+    
     $stmt->execute();
 
     $mensagem =  "Dados alterados com sucesso!";
@@ -54,11 +57,16 @@ function validarBD($usuario, $senha){
 
 }
 
-function puxarDados($usuario){
+function puxarDados($usuario, $tudo = false){
     $conn = conectar();
     $tabela = 'cadastro';
-
-    $stmt = $conn->prepare("SELECT id, nome, sobrenome FROM $tabela WHERE usuario = '$usuario'");
+    if($tudo == true){
+        $campos = '*';
+    } else{
+        $campos = 'id, nome, sobrenome';
+    }
+    
+    $stmt = $conn->prepare("SELECT $campos FROM $tabela WHERE usuario = '$usuario'");
 
     $stmt->execute();
 
@@ -67,5 +75,6 @@ function puxarDados($usuario){
     return $results;
 
 }
+
 
 ?>

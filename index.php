@@ -30,6 +30,12 @@ switch($paginas){
     $nav = '_navDashboard';
     break;
 
+    case 'alterarcadastro':
+      $pagina = "dashboard/alterarcadastro.php";
+      $titulo = "Importação";
+      $nav = '_navDashboard';
+      break;
+
     case "sair":
       $pagina = "dashboard/sair.php";
       $titulo = "Sair";
