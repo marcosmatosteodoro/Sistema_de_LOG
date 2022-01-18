@@ -10,11 +10,11 @@ if(isset($_GET['met']) && $_GET['met'] == 'alter'){
     $dados = json_decode($_GET['dados'], true);
     $dados['telefone'] = str_replace(" ","",$dados['telefone']);
     $dados['telefone'] = str_replace("-","",$dados['telefone']);
-    require_once "Vendor/dashboard/vizualizacaoAlter.html";
+    require_once "Vendor/dashboard/visualizacaoAlter.html";
 
 }elseif(isset($_GET['met']) && $_GET['met'] == 'exc'){
     $dados = json_decode($_GET['dados'], true);
-    require_once "Vendor/dashboard/vizualizacaoExec.html";
+    require_once "Vendor/dashboard/visualizacaoExec.html";
 
 }elseif(isset($_GET['nome_a'])){
     $message = alterarbd($_GET['nome_a'], $_GET['idade_a'], $_GET['telefone_a'], $_GET['matricula_a'], $_GET['id_a']);
@@ -26,7 +26,7 @@ if(isset($_GET['met']) && $_GET['met'] == 'alter'){
 }
 
 
-require_once "Vendor/dashboard/vizualizacaoInicio.html";
+require_once "Vendor/dashboard/visualizacaoInicio.html";
 
 
 foreach(exibirDados() as $dados){
@@ -39,10 +39,10 @@ foreach(exibirDados() as $dados){
     <td>" . $dados['matricula'] . "</td>
     <td>
         
-        <a href='?p=vizualizacao&met=alter&dados=". json_encode($dados) ."'>
+        <a href='?p=visualizacao&met=alter&dados=". json_encode($dados) ."'>
             <button class='btn btn-secundary'>Alterar</button>
         </a>
-        <a href='?p=vizualizacao&met=exc&dados=" .json_encode($dados)."'>
+        <a href='?p=visualizacao&met=exc&dados=" .json_encode($dados)."'>
             <button class='btn btn-danger'>Excluir</button>
         </a>
         
@@ -50,5 +50,7 @@ foreach(exibirDados() as $dados){
 </tr>"
 ;
 }
-require_once "Vendor/dashboard/vizualizacaoFim.html";
+
+require_once "Vendor/dashboard/visualizacaoFim.html";
+
 ?>

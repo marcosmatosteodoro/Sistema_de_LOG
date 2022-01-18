@@ -18,9 +18,9 @@ switch($paginas){
     $nav = '_navLog';
     break;
 
-    case 'vizualizacao':
-    $pagina = "dashboard/vizualizacao.php";
-    $titulo = "Vizualização";
+    case 'visualizacao':
+    $pagina = "dashboard/visualizacao.php";
+    $titulo = "Visualização";
     $nav = '_navDashboard';
     break;
 
