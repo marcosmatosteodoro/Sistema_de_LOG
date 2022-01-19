@@ -2,7 +2,6 @@
 require_once "Vendor/config/bd_usuarios.php";
 require_once "Vendor/config/session.php";
 
-
 if(isset($_POST['user_l']) && isset($_POST['pass_l'])){
 
     $logado = false;
@@ -21,11 +20,13 @@ if(isset($_POST['user_l']) && isset($_POST['pass_l'])){
             $logado = true;
             $dados = puxarDados($usuario);
             $message = entrarSession($dados[0]['id'], $dados[0]['nome'], $dados[0]['sobrenome'], $usuario);
+            header('Location:index.php?p=visualizacao');
         }
     }
-    if ($logado === true) {
-        header('Location:index.php?p=visualizacao');
-    }
+
+}
+if(isset($_GET['m']) && isset($_GET['t'])){
+    mensagem($_GET['m'], $_GET['t']);
 }
 
 require_once 'Vendor/log/login.html';

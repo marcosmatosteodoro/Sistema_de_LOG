@@ -17,6 +17,7 @@
 .mylabel{
     font-family: Georgia, serif;
     font-size:20px;
+    margin-bottom: 0;
 }
 .my_table{
     width: 89%;
@@ -46,13 +47,11 @@
 }
 .mynav{
     margin-top: 1%;
-    margin-bottom: 2%
+    margin-bottom: 2%;
+    margin-left: 18%;
 }
 .titulo{
     font-size: 60px;
     font-family: Brandon Text;
     margin-top: 5%;
-}
-.nav_link{
-    margin-left: 14%;
 }

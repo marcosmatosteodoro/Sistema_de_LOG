@@ -57,11 +57,21 @@ function exibirDados($ordem = 'id'){
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function validarmatricula($matricula){
+    $conn = conectar();
+    $tabela = 'pacientes';
+
+    $stmt = $conn->prepare("SELECT * FROM $tabela WHERE matricula = '$matricula'");
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
 function excluirDados($id_paciente){
     $conn = conectar();
     $tabela = 'pacientes';
 
-    $stmt = $conn->prepare("DELETE FROM $tabela WHERE id = $id_paciente;");
+    $stmt = $conn->prepare("DELETE FROM $tabela WHERE id = $id_paciente");
     $stmt->execute();
 
     return 'Dados excluidos com sucesso!';

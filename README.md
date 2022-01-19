@@ -1,9 +1,9 @@
 # Sistema de Gestão de vidas
 
-Faça um dump do no mysql que se encontra dentro da pasta dump, caso seu usuario não seja 'root' e senha não seja '' (vazio), abra a pasta config e altere as váriáveis '$user' e '$senha', o nome da Schema é 'bdusuario'.
+Faça um dump do arquivo bdusuario.sql no seu MYSQL, que criará no su banco de dados uma SCHEMA "bdusuario" e duas tabelas "cadastro" e "pacientes" respectivamente  com alguns INSERTs de dados.
 
-Antes de começar saiba que não tem um usuario padrão, é necessário clicar em "caso não tenha conta clique aqui para criar" dentro do programa e criar seu cadastro para usar o sistema
+Caso seu usuário não seja 'root' e senha não seja '' (vazio), altere as variáveis "$user" e "$senha" nos arquivos bd_pacientes e bd_usuarios no caminho Vendor/config.
 
-É possivel cadastrar pacientes em importações preenchendo o cadastro, ou carregando um arquivo txt nno formato do arquivo 'Exemplo.txt'
+Se seguido os passo acima, na tela visualização possui dados de 4 pacientes e um usuário 'root' com senha 'root' caso não queira criar um cadastro
 
-Ainda em desenvolvimento
+É possível cadastrar pacientes em importações preenchendo os termos do cadastro, ou carregando um arquivo txt no formato do arquivo 'Exemplo.txt'

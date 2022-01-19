@@ -7,23 +7,23 @@
 
           <form class="cadastro_form" name="cadastro" method="post" action="">
             <div class="form-group" >
-              <label class="mylabel">Nome</label>
-              <input class="input" name="nome_i" type="text">
+              <p class="mylabel">Nome</p>
+              <input class="input" name="nome_i" type="text" value="<?php if(isset($nome)){ echo $nome; } ?>">
             </div>
 
             <div class="form-group" >
-              <label class="mylabel">Idade</label>
-              <input class="input" name="idade_i" type="number">
+              <p class="mylabel">Idade</p>
+              <input class="input" name="idade_i" type="number" value="<?php if(isset($nome)){ echo $idade; } ?>">
             </div>
 
             <div class="form-group" >
-              <label class="mylabel">Telefone</label>
-              <input class="input" name="telefone_i" type="number">
+              <p class="mylabel">Telefone</p>
+              <input class="input" name="telefone_i" type="text" value="<?php if(isset($nome)){ echo $telefone; } ?>">
             </div>
 
             <div class="form-group" >
-              <label class="mylabel">Matricula</label>
-              <input class="input" name="matricula_i" type="text">
+              <p class="mylabel">Matricula</p>
+              <input class="input" name="matricula_i" type="text" value="<?php if(isset($nome)){ echo $matricula; } ?>">
             </div>
 
             <button class="button btn btn-large btn-primary" type="submit">Salvar</button>
@@ -31,7 +31,7 @@
         <hr>
         <form class="cadastro_form" name="enviarTxt" method="post" action="" enctype="multipart/form-data">
             <div class="form-group" >
-              <label class="mylabel">Enviar arquivo de extensão txt</label>
+              <p class="mylabel">Enviar arquivo de extensão txt</p>
               <input class="input" name="fileUpload" type="file">
             </div>
 

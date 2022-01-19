@@ -25,7 +25,9 @@ if(isset($_GET['met']) && $_GET['met'] == 'alter'){
     mensagem($message, 'sucesso');
 }
 
-
+if(isset($_GET['m']) && isset($_GET['t'])){
+    mensagem($_GET['m'], $_GET['t']);
+}
 require_once "Vendor/dashboard/visualizacaoInicio.html";
 
 
