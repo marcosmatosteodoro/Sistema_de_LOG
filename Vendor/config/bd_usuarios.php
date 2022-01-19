@@ -18,18 +18,18 @@ function inseriBD($nome, $sobrenome, $email, $usuario, $senha){
     $stmt->bindParam(":EMAIL", $email);
     $stmt->bindParam(":LOGIN", $usuario);
     $stmt->bindParam(":PASSWORD", $senha);
-    
+
     $stmt->execute();
     
     return "Dados inserido com sucesso!";
 }
 
-function alterarbd($nome, $sobrenome, $email, $usuario, $senha){
+function alterarbd($id, $nome, $sobrenome, $email, $usuario, $senha){
     $conn = conectar();
     $tabela = 'cadastro';
 
-    $stmt = $conn->prepare("UPDATE $tabela SET nome= :NAME, sobrenome= :LASTNAME, email= :EMAIL, usuario= :LOGIN, senha= :PASSWORD WHERE usuario = :LOGIN");
-  
+    $stmt = $conn->prepare("UPDATE $tabela SET nome= :NAME, sobrenome= :LASTNAME, email= :EMAIL, usuario= :LOGIN, senha= :PASSWORD WHERE id = :ID");
+    $stmt->bindParam(":ID", $id);
     $stmt->bindParam(":NAME", $nome);
     $stmt->bindParam(":LASTNAME", $sobrenome);
     $stmt->bindParam(":EMAIL", $email);
@@ -37,10 +37,7 @@ function alterarbd($nome, $sobrenome, $email, $usuario, $senha){
     $stmt->bindParam(":PASSWORD", $senha);
     
     $stmt->execute();
-
-    $mensagem =  "Dados alterados com sucesso!";
-
-    return $mensagem;
+    return "Dados alterados com sucesso!";
 }
 
 function validarBD($usuario, $senha){
@@ -48,13 +45,9 @@ function validarBD($usuario, $senha){
     $tabela = 'cadastro';
 
     $stmt = $conn->prepare("SELECT * FROM $tabela WHERE usuario = '$usuario' && senha = '$senha'");
-
     $stmt->execute();
-
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
     return count($results); 
-
 }
 
 function puxarDados($usuario, $tudo = false){
@@ -67,13 +60,9 @@ function puxarDados($usuario, $tudo = false){
     }
     
     $stmt = $conn->prepare("SELECT $campos FROM $tabela WHERE usuario = '$usuario'");
-
     $stmt->execute();
-
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
     return $results;
-
 }
 
 

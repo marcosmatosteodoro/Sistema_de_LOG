@@ -57,11 +57,15 @@ function exibirDados($ordem = 'id'){
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function validarmatricula($matricula){
+function validarmatricula($matricula, $id=0){
     $conn = conectar();
     $tabela = 'pacientes';
 
-    $stmt = $conn->prepare("SELECT * FROM $tabela WHERE matricula = '$matricula'");
+    if($id > 0){
+        $stmt = $conn->prepare("SELECT * FROM $tabela WHERE matricula = '$matricula' && id = '$id'");
+    }else{
+        $stmt = $conn->prepare("SELECT * FROM $tabela WHERE matricula = '$matricula'");
+    }
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }

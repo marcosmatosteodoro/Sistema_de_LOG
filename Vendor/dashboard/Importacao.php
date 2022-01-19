@@ -40,6 +40,10 @@ if(isset($_POST['nome_i'])){
     $extensao = substr($file['name'], -3, 3);
     $erro = false;
     if ($file["error"]) {
+        $message = " Ops, algo deu errado com o envio do seu arquivo<br>
+                    Verifique-o e tente novamente!";
+        mensagem($message, 'danger');
+        return require_once "Vendor/dashboard/importacao.html";
         throw new Excaption("Error: ".$file["error"]);
     }
     if($extensao != 'txt'){
@@ -56,10 +60,13 @@ if(isset($_POST['nome_i'])){
     if ($erro !== true) {
         move_uploaded_file($file["tmp_name"], $dirUploads . DIRECTORY_SEPARATOR . $file["name"]);
         $mensagem = enviartxt();
-        header("Location:index.php?p=visualizacao&m=$mensagem&t=sucesso");
+        if($mensagem[0] == 'danger'){
+            mensagem($mensagem[1], $mensagem[0]);
+        }else{
+            header("Location:index.php?p=visualizacao&m=".$mensagem[1]."&t=sucesso");
+        }
     }
 }
-
 
 require_once "Vendor/dashboard/importacao.html";
 ?>

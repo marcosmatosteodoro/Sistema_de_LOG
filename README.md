@@ -1,9 +1,13 @@
 # Sistema de Gestão de vidas
 
-Faça um dump do arquivo bdusuario.sql no seu MYSQL, que criará no su banco de dados uma SCHEMA "bdusuario" e duas tabelas "cadastro" e "pacientes" respectivamente  com alguns INSERTs de dados.
+Neste projeto construí um sistema de gerenciamento cadastro de usuários, a aplicação foi construída em PHP utilizando Session como autenticação, MYSQL como banco de dados, e sua
+comunicação com PDO.
 
-Caso seu usuário não seja 'root' e senha não seja '' (vazio), altere as variáveis "$user" e "$senha" nos arquivos bd_pacientes e bd_usuarios no caminho Vendor/config.
+É possível criar um cadastrar na área cadastro, logar com usuário e senha na área login, e 
+então após a autenticação se entra na área protegida na qual é possível visualizar os registros
+de todos os pacientes já cadastrados, podendo alterar o cadastro de cada um ou excluir, no fim da página tem um botão de redirecionamento que leva para área de importação, que é possível 
+adicionar ao registro novos pacientes digitando cada campo, ou fazer um upload de exceção txt
+no formatação exemplificada no arquivo "Exemplo.txt" com mais de um paciente.
 
-Se seguido os passo acima, na tela visualização possui dados de 4 pacientes e um usuário 'root' com senha 'root' caso não queira criar um cadastro
-
-É possível cadastrar pacientes em importações preenchendo os termos do cadastro, ou carregando um arquivo txt no formato do arquivo 'Exemplo.txt'
+Na área de usuário é possível alterar os dados de cadastro do usuário logado e por fim o ícone
+"sair" no menu encerra a sessão e o redireciona para pagina de login.

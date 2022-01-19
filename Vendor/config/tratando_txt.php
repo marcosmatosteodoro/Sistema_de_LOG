@@ -17,64 +17,24 @@ function enviartxt(){
         
         // LÊ A PRIMEIRA LINHA  DA PAGINA
         $file = fopen($filename, 'r');
-        $headers = explode(' ', fgets($file));
-
+        $headers = explode(';', fgets($file));
+        if(count($headers) != 4){
+            return ['danger','Primeira linha fora do formato.'];
+        }
+        $i = 0;
         // LÊ CADA LINHA DA PAGINA
-        while( $row = fgets($file)){
-            $row_data = manipuladados($row);
-            
-
-            $message = inseriBD($row_data['nome'], $row_data['idade'], $row_data['numero'], $row_data['matricula']);
+        while($row = fgets($file)){
+            $newrow = explode(';', $row);
+            $i++;
+            if(count($newrow) != 4){
+                return ['danger',"Linha $i fora do formato. Registrado " . ($i-1) ." pacientes."];
+            }
+            inseriBD($newrow[0],$newrow[1],$newrow[2],$newrow[3]);
             }
         unlink($filename);
-        }
-        
+        }  
     }
 
-    return 'Dados salvo com sucesso!';
+    return ['sucesso' ,'Dados salvo com sucesso!'];
 }
-
-function manipuladados($row){
-    $r = array();
-    for($i = 0; $i < 10; $i++){
-        $palavra = " $i";
-        $q = strpos($row, $palavra);
-        array_push($r, $q);
-    }
-    $r = array_reduce($r, 'menor');
-    $palavra = " 4";
-    $q = strpos($row, $palavra);
-    $nome = substr($row, 0, $r);
-    $resto = substr($row, $r + (strlen($palavra) -1), strlen($row));
-
-    $palavra2 = " ";
-    $q2 = strpos($resto, $palavra2);
-    $idade = substr($resto, 0, $q2);
-    $resto2 = substr($resto, $q2 + strlen($palavra2), strlen($resto));
-
-    $palavra3 = " ";
-    $numero = substr($resto2, 0, 13);
-    $resto3 = substr($resto2, 13 + 1, strlen($resto2));
-    
-    $matricula = $resto3;
-
-    $new_row['nome'] = $nome;
-    $new_row['idade'] = $idade;
-    $new_row['numero'] = $numero;
-    $new_row['matricula'] = $matricula;
-    return $new_row;
-}
-
-function menor($a, $p){
-    if($a == false){
-        return $p;
-    }elseif($p == false){
-        return $a;
-    }elseif($a < $p){
-        return $a;
-    } else {
-        return $p;
-    }
-}
-
 ?>
